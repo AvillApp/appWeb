@@ -14,6 +14,7 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage'; 
+import { api } from "../../../api/db";
 
 
 function Login(props) {
@@ -42,7 +43,7 @@ function Login(props) {
       const autentication = async () => {
 
           setIsError(false)
-          const dt =  await axios.get(`http://localhost:8000/api/personas/login/${valueForm.get('phone')}/${valueForm.get('password')}`);
+          const dt =  await axios.get(`${api}personas/login/${valueForm.get('phone')}/${valueForm.get('password')}`);
           
           console.log(dt.data)
           console.log(dt.data.length)
